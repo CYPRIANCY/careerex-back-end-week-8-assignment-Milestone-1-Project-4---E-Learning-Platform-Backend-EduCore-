@@ -1,0 +1,1 @@
+// Messaging model with conversationId
