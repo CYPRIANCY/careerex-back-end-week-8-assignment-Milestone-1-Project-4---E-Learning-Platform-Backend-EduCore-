@@ -1,5 +1,6 @@
 import Enrollment from '../models/Enrollment.js';
 import Course from '../models/Course.js';
+import { createNotification } from './notificationController.js';
 
 export const enrollInCourse = async (req, res) => {
   const studentId = req.user.id;
@@ -15,6 +16,9 @@ export const enrollInCourse = async (req, res) => {
     });
 
     res.status(201).json({ message: 'Enrolled successfully', enrollment });
+    // After successful enrollment
+    await createNotification(course.instructor, `${user.name} enrolled in your course: ${course.title}`, `/courses/${courseId}`);
+    await createNotification(user._id, `You successfully enrolled in ${course.title}`, `/courses/${courseId}`);
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).json({ message: 'Already enrolled in this course' });

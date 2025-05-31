@@ -19,6 +19,12 @@ const courseSchema = new mongoose.Schema(
       type: String,
       default: 'General',
     },
+    price: {
+      type: Number,
+      required: true,
+      default: 0, // Free by default
+    },
+
   },
   { timestamps: true }
 );
