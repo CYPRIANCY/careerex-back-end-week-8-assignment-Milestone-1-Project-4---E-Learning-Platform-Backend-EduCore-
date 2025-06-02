@@ -11,8 +11,10 @@ const notificationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    link: {
-      type: String, // e.g., "/courses/:id"
+    type: {
+      type: String,
+      enum: ['info', 'success', 'warning', 'error'],
+      default: 'info',
     },
     isRead: {
       type: Boolean,

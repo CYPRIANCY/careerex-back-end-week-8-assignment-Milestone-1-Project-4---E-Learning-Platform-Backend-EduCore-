@@ -43,6 +43,9 @@ import progressRoutes from './routes/progressRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import reviewRoutes from './routes/reviewRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
+import certificateRoutes from './routes/certificateRoutes.js';
+import messageRoutes from './routes/messageRoutes.js';
 
 
 // Load environment variables
@@ -66,6 +69,10 @@ app.use('/api/progress', progressRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/certificates', certificateRoutes);
+app.use('/api/messages', messageRoutes);
+
 
 // Start Server
 const PORT = process.env.PORT || 5000;
